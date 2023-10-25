@@ -17,12 +17,13 @@ const testRoute = [
             const props = {
                 data1: 'ini sebuah percobaan'
             }
-            return h.response({ data1: props.data1 }).code(200)
-            // const response = h.response
-            // response = { data1: props.data1 }
-            // response.Code(200)
+            // return h.response({ data1: props.data1 }).code(200)
+            const response = h.response({
+                data1: props.data1
+            })
+            response.code(200)
 
-            // return response
+            return response
         }
     },
     {
