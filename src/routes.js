@@ -2,15 +2,17 @@
 /* eslint-disable indent */
 const testRoute = [
     {
+        // bagian render HTML dari GET "/"
         method: 'GET',
         path: '/',
         handler: (request, h) => {
             return h.view('index', {
-                title: 'My EJS Page'
+                title: 'Percobaan EJS dengan API'
             })
         }
     },
     {
+        // bagian request data API
         method: 'GET',
         path: '/getData1',
         handler: (request, h) => {
@@ -19,7 +21,7 @@ const testRoute = [
                 data2: 'ini merupakan data2 dari API',
                 data3: 'ini merupakan data3 dari API'
             }
-            // return h.response({ data1: props.data1 }).code(200)
+
             const response = h.response({
                 data1: props.data1,
                 data2: props.data2,
@@ -32,7 +34,7 @@ const testRoute = [
     },
     {
         method: 'GET',
-        path: '/public/js/main.js',
+        path: '/public/js/{path*}',
         handler: {
             file: 'js/main.js'
         }

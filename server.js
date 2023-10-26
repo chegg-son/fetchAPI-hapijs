@@ -20,8 +20,10 @@ const server = Hapi.server({
 })
 
 async function start() {
-    await server.register(Vision)
-    await server.register(Inert)
+    await server.register([
+        Vision,
+        Inert
+    ])
 
     server.views({
         engines: {
